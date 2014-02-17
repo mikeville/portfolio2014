@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Michael Deal's World Wide Website</title>
+<link rel="stylesheet" href="stylesheets/style.css">
+<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+<script src="javascripts/isotope.pkgd.js" type="text/javascript"></script> 
+<script src="javascripts/underscore.js" type="text/javascript"></script> 
+<script src="javascripts/backbone.js" type="text/javascript"></script> 
+<script src="javascripts/app.js" type="text/javascript"></script> 
+</head>
+<body>
+  <div id="container">
+    <header>
+      <h1>Michael Deal</h1>
+      <div id="top_navigation">
+        <a href="#">Projects</a>
+        <a href="#">About</a>
+      </div>
+    </header>
+    <div id="project_container">
+    </div>
+    <div id="projects_index">
+    <!--   <div class="item objects size_half">
+        <img src="images/watch.jpg" alt="image">
+      </div>
+      
+      <div class="item people places size_half">
+        <img src="images/surf.jpg" alt="image">
+      </div>  
+
+      <div class="item food size_full">
+        <img src="images/burger.jpg" alt="image">
+      </div>
+      
+      <div class="item food size_full">
+        <img src="images/burger-2x2.jpg" alt="image">
+      </div>
+
+      <div class="item people places size_full">
+        <img src="images/subway.jpg" alt="image">
+      </div>
+
+      <div class="item people places size_full">
+        <img src="images/subway-1x2.jpg" alt="image">
+      </div>
+
+      <div class="item places objects size_half">
+        <img src="images/trees.jpg" alt="image">
+      </div>
+
+      <div class="item people food objects size_full">
+        <img src="images/coffee.jpg" alt="image">
+      </div>
+
+      <div class="item food objects size_half">
+        <img src="images/wine.jpg" alt="image">
+      </div>  
+      
+      <div class="item food size_full">
+        <img src="images/salad.jpg" alt="image">
+      </div>   -->
+    </div>
+  </div>
+
+
+ 
+<script type="text/javascript">
+
+$(window).load(function(){
+    var $container = $('#project_index');
+    $container.isotope({
+        filter: '*',
+        animationOptions: {
+            duration: 750,
+            easing: 'linear',
+            queue: false
+        }
+    });
+ 
+    $('.portfolioFilter a').click(function(){
+        $('.portfolioFilter .current').removeClass('current');
+        $(this).addClass('current');
+ 
+        var selector = $(this).attr('data-filter');
+        $container.isotope({
+            filter: selector,
+            animationOptions: {
+                duration: 750,
+                easing: 'linear',
+                queue: false
+            }
+         });
+         return false;
+    }); 
+});
+
+</script>
+ 
+
+ 
+ <!-- Google Analytics -->
+<script type="text/javascript">
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-21422990-1']);
+	_gaq.push(['_setDomainName', 'none']);
+	_gaq.push(['_setAllowLinker', true]);
+	_gaq.push(['_trackPageview']);
+	
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+	
+</script>
+ 
+</body>
+</html>
