@@ -53,6 +53,9 @@ img .size_half {
     transition-property: transform, opacity;
 }
 
+
+/*-----------------Mike's styles-----------*/
+
 .portfolioContainer, body {
     margin: 0px;
     padding: 0px;
@@ -60,4 +63,9 @@ img .size_half {
 
 .item {
     line-height: 0px;
+}
+
+.teaser_container{
+    width: 500px;
+    background: red;
 }

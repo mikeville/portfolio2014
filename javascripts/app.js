@@ -9,9 +9,9 @@ var ProjectsCollection = Backbone.Collection.extend({
     model: Project,
     initialize: function(){
         var self = this;
-            var projectsList = ["pinterest", "billboard", "another"]
+        var projectsList = ["pinterest", "billboard", "another"]
 
-                _.each(projectsList, function(project){
+        _.each(projectsList, function(project){
             self.add({
                 title: project
             })
@@ -31,7 +31,8 @@ var ProjectsIndex = Backbone.View.extend({
         var self = this
         _.each(this.collection.models, function(project){
             var projectTeaser = new ProjectTeaser({
-                model: project
+                model: project,
+                className: "teaser_container"
             });
             self.$el.append(projectTeaser.render().$el)
         })
@@ -46,11 +47,14 @@ var ProjectTeaser = Backbone.View.extend({
     initialize: function(){
         this.render();
     },
-    template: function(){
-
+    template: function(attrs){
+        html_string = $('#teaser_template').html();
+        //for template image path: projects/<%= title %>/thumb<%= title %>.gif
+        var template_func = _.template(html_string)
+        return template_func(attrs)
     },
     render: function(){
-        this.$el.html(this.model.attributes.title)
+        this.$el.html(this.template(this.model.attributes))
         return this
     },
     openProject: function(){
@@ -65,7 +69,10 @@ var ProjectContent = Backbone.View.extend({
 
 
 $(window).load(function(){
-    var $container = $('.portfolioContainer');
+    var projectsIndex = new ProjectsIndex();
+
+
+    var $container = $('#projects_index');
     $container.isotope({
         filter: '*',
         animationOptions: {
@@ -91,21 +98,7 @@ $(window).load(function(){
          return false;
     }); 
 
-    var projectsList = ["pinterest", "billboard", "another"]
-    // window.projectsCollection = new ProjectsCollection();
-    
 
-
-    var collectionPopulator = function(){
-        _.each(projectsList, function(project){
-            projectsCollection.add({
-                title: project
-            })
-        })
-    }
-
-    var projectsIndex = new ProjectsIndex();
-    // collectionPopulator();
 
 
 });
