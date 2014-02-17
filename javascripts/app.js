@@ -107,6 +107,5 @@ $(window).load(function(){
     var projectsIndex = new ProjectsIndex();
     // collectionPopulator();
 
-    // $('#project_index').html(projectsIndex.el)
 
 });
