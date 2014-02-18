@@ -23,51 +23,25 @@
     <div id="projects_index">
     <!--   <div class="item objects size_half">
         <img src="images/watch.jpg" alt="image">
-      </div>
-      
-      <div class="item people places size_half">
-        <img src="images/surf.jpg" alt="image">
-      </div>  
-
-      <div class="item food size_full">
-        <img src="images/burger.jpg" alt="image">
-      </div>
-      
-      <div class="item food size_full">
-        <img src="images/burger-2x2.jpg" alt="image">
-      </div>
-
-      <div class="item people places size_full">
-        <img src="images/subway.jpg" alt="image">
-      </div>
-
-      <div class="item people places size_full">
-        <img src="images/subway-1x2.jpg" alt="image">
-      </div>
-
-      <div class="item places objects size_half">
-        <img src="images/trees.jpg" alt="image">
-      </div>
-
-      <div class="item people food objects size_full">
-        <img src="images/coffee.jpg" alt="image">
-      </div>
-
-      <div class="item food objects size_half">
-        <img src="images/wine.jpg" alt="image">
-      </div>  
-      
-      <div class="item food size_full">
-        <img src="images/salad.jpg" alt="image">
       </div>   -->
     </div>
   </div>
 
-<script id='teaser_template' type="text/template">
-  <img class="teaser_thumb" src="#">
-  <h3 class="teaser_title"><%= title %></h3>
+
+
+<!-- **************** TEMPLATES ************************** -->
+<script id="teaser_template" type="text/template">
+  <img class="teaser_thumb" src="projects/<%= title %>/thumb_<%= title %>.gif">
+  <h3 class="teaser_title"><%= description %></h3>
 </script>
  
+
+<script id="project_template_pinterest" type="text/template">
+  <h2>YOURE DOING IT</h2>
+</script>
+
+
+
 <script type="text/javascript">
 
 $(window).load(function(){
