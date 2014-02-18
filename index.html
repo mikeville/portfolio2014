@@ -12,10 +12,10 @@
 <body>
   <div id="container">
     <header>
-      <h1>Michael Deal</h1>
+      <a id="mike_title" href="#"><h1>Mike Deal</h1></a>
       <div id="top_navigation">
-        <a href="#">Projects</a>
-        <a href="#">About</a>
+        <a id="nav_projects" href="#">Projects</a>
+        <a id="nav_about" href="#">About</a>
       </div>
     </header>
     <div id="project_container">
@@ -31,14 +31,45 @@
 
 <!-- **************** TEMPLATES ************************** -->
 <script id="teaser_template" type="text/template">
-  <img class="teaser_thumb" src="projects/<%= title %>/thumb_<%= title %>.gif">
+  <img class="teaser_thumb" src="projects/thumbs/thumb_<%= title %>.jpg">
   <h3 class="teaser_title"><%= description %></h3>
 </script>
  
 
-<script id="project_template_pinterest" type="text/template">
-  <h2>YOURE DOING IT</h2>
+<script id="project_title_wrapper" type="text/template">
+  <h2><%= description %></h2>
+  <div id="project_content"></div>
+  <br>
+  <br>
+  <br>
 </script>
+
+
+<!-- **************** CONTENT: Index ************************** -->
+
+<script id="index_content" type="text/template">
+  <p>Expressive information design and other stuff</p>
+</script>
+
+<!-- **************** CONTENT: About ************************** -->
+
+<script id="about_content" type="text/template">
+  <p>Ahoy, thanks for stopping by. Im from Seattle, work in New York, and like fun design systems. Ive worked at the Google Creative Lab, Local Projects, and Pentagram. </p>
+  <br>
+  <p>thedeal@gmail.com</p>
+  <p>@dealville</p>
+</script>
+
+<!-- **************** CONTENT: Projects ************************** -->
+
+
+<script id="project_content_lorem" type="text/template">
+  <p class="project_description">Lorem ipsum dolor sit amet, mel graeco perfecto ex. Ut pro tota oratio facilisis. Sit at consul facete, quo stet facilis id. Affert explicari temporibus est te. Nam tritani mandamus no, euismod civibus pro eu. Has atqui harum tincidunt id, postea laboramus et quo.
+
+  </p>
+  <img src="projects/thumbs/lorembig.jpg">
+</script>
+
 
 
 

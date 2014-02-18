@@ -12,7 +12,15 @@ var ProjectsCollection = Backbone.Collection.extend({
         var self = this;
         var projectsList = {"pinterest": "Pinterest logo",
                             "billboard": "Billboard charts redesign",
-                            "pollen": "Magazine illustrations"}
+                            "pollen": "Magazine illustrations",
+                            "beatles": "Charting the Beatles",
+                            "detox": "Doodles",
+                            "fatty": "Music branding",
+                            "schranghamer": "Schranghamer branding",
+                            "statlas": "Statlas.co product design",
+                            "zoo": "Apparel design",
+                            "umbro": "Umbro infographics"
+                        }
 
         _.each(projectsList, function(value, key){
             self.add({
@@ -53,7 +61,7 @@ var ProjectTeaser = Backbone.View.extend({
         var title = this.model.attributes.title
         this.render();
         this.$el.on("click", function(e){
-            self.openProject(title)
+            self.openProject(self.model.attributes)
         })
         this.$el.on("mouseover", this.mouseOverProject)
     },
@@ -66,10 +74,15 @@ var ProjectTeaser = Backbone.View.extend({
         this.$el.html(this.template(this.model.attributes))
         return this
     },
-    openProject: function(title){
-        project_html = $('#project_template_'+title).html();
-        var template_func = _.template(project_html)
-        $('#project_container').html(template_func(title))
+    openProject: function(attrs){
+        var project_title_wrapper_html = $('#project_title_wrapper').html();
+        var template_func = _.template(project_title_wrapper_html)
+        $('#project_container').html(template_func(attrs))
+        
+        var project_content_html = $('#project_content_'+attrs.title).html();
+        var project_content_html = $('#project_content_lorem').html();
+        var template_func2 = _.template(project_content_html)
+        $('#project_content').html(template_func2(attrs))
 
     },
     mouseOverProject: function(){
@@ -82,6 +95,25 @@ var ProjectContent = Backbone.View.extend({
 
 })
 
+
+var renderIndex = function(){
+    var index_content_html = $('#index_content').html()
+    var template_func = _.template(index_content_html)  
+    $('#project_container').html(template_func)
+}
+
+var renderAbout = function(){
+    var about_content_html = $('#about_content').html()
+    var template_func = _.template(about_content_html)  
+    $('#project_container').html(template_func)
+}
+
+
+var addEventsToTopLinks = function(){
+    $('#mike_title').on("click", renderIndex)
+    $('#nav_projects').on("click", renderIndex)
+    $('#nav_about').on("click", renderAbout)
+}
 
 $(window).load(function(){
     var projectsIndex = new ProjectsIndex();
@@ -113,7 +145,9 @@ $(window).load(function(){
          return false;
     }); 
 
+renderIndex();
 
+addEventsToTopLinks();
 
 
 });
